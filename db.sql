@@ -26,3 +26,6 @@ select * from restaurants where id = 1; -- show data from a specific id
 
 select name, price_range from restaurants;
 --shows you specific fields in table
+
+UPDATE restaurants SET name = 'red hot', location = 'tacoma', price_range = 2 where id = 7;
+--updates table entry
