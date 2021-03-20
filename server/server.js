@@ -10,29 +10,39 @@ app.use(express.json());
 
 // Get all restaurants
 app.get("/api/v1/restaurants", async (req, res) => {
-
-    const results = await db.query('select * from restaurants')
-    console.log(results)
-    res.status(200).json({
+    try {
+        const results = await db.query('select * from restaurants')
+        console.log(results)
+        res.status(200).json({
         status: "success",
+        results: results.rows.length,
         data: {
-            restaurant: ["Shake Shack", "P.F. Changs", "Mario's Pizza"] 
+            restaurants: results.rows 
         },
-    })
+    });
+    } catch (err) {
+        console.log(err);
+    }
 });
 //http://localhost:4000/api/v1/restaurants
 
 
 // Get single restaurant
-app.get("/api/v1/restaurants/:id", (req, res) => {
-    console.log(req.params);
+app.get("/api/v1/restaurants/:id", async (req, res) => {
+    console.log(req.params.id);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            restaurant: "mcdonalds"
-        }
-    })
+    try {
+        const results = await db.query("select * from restaurants where id = $1", [req.params.id]);
+        res.status(200).json({
+            status: "success",
+            data: {
+                restaurant: results.rows[0],
+            }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+
 });
 
 // Create a restaurant

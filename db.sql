@@ -4,6 +4,8 @@
 
 -- list all tables \d
 
+-- connect to (switch into) a database \c
+
 
 CREATE TABLE restaurants (
     id BIGSERIAL NOT NULL PRIMARY KEY,
@@ -18,6 +20,9 @@ ALTER TABLE restaurants DROP COLUMN featured;
 INSERT INTO restaurants (name, location, price_range) values ('shake shack', 'las vegas', 3);
 
 select * from restaurants; --shows us data from every column
+
+select * from restaurants where id = 1; -- show data from a specific id
+--works with other paramaters such as location = santa barbara or price_range = 3
 
 select name, price_range from restaurants;
 --shows you specific fields in table
