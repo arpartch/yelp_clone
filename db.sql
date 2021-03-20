@@ -29,3 +29,6 @@ select name, price_range from restaurants;
 
 UPDATE restaurants SET name = 'red hot', location = 'tacoma', price_range = 2 where id = 7;
 --updates table entry
+
+DELETE FROM restaurants where id = 7;
+--delete table entry
