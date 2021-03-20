@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const app = express();
 
 
-app.use(express.json())
+app.use(express.json());
 
 
 // Get all restaurants
@@ -45,9 +45,10 @@ app.post("/api/v1/restaurants", (req, res) => {
 
 //Update restaurants
 app.put("/api/v1/restaurants/:id", (req, res) => {
-    console.log(req.params.id);
-    console(req.body);
-    res.status(200).json({
+    console.log(req.params);
+    console.log(req.body);
+
+      res.status(200).json({
         status: "success",
         data: {
             restaurant: "mcdonalds"
