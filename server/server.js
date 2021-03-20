@@ -61,7 +61,7 @@ app.put("/api/v1/restaurants/:id", (req, res) => {
 app.delete("/api/v1/restaurants/:id", (req, res) => {
     res.status(204).json({
         status: "success"
-    })
+    });
 });
 
 const port = process.env.PORT || 3001;
