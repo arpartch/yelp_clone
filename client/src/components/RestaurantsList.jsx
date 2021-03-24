@@ -5,7 +5,7 @@ const RestaurantsList = () => {
         <div className="list-group">
             <table className="table table-hover table-dark">
                 <thead>
-                    <tr class="bg-success">
+                    <tr className="bg-success">
                         <th scope="col">Restaurant</th>
                         <th scope="col">Location</th>
                         <th scope="col">Price Range</th>
