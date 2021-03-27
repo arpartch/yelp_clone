@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import { RestaurantsContextProvider } from './context/RestaurantsContext';
 import home from './routes/home';
-import restaurantDetailPage from './routes/restaurantDetailPage';
+import RestaurantDetailPage from './routes/RestaurantDetailPage';
 import updatePage from './routes/updatePage';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
             <Switch>
             <Route exact path="/" component={home}/>
             <Route exact path="/restaurants/:id/update" component={updatePage}/>
-            <Route exact path="/restaurants/:id" component={restaurantDetailPage}/>
+            <Route exact path="/restaurants/:id" component={RestaurantDetailPage}/>
             </Switch>
         </Router>
     </div>
