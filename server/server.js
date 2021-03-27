@@ -33,13 +33,17 @@ app.get("/api/v1/restaurants/:id", async (req, res) => {
     console.log(req.params.id);
 
     try {
-        const results = await db.query("select * from restaurants where id = $1", [req.params.id]);
+        const restaurant = await db.query("select * from restaurants where id = $1", [req.params.id]);
         //parameterized query for security -- computer reads select * from restaurants where id = req.params.id
+        
+        const reviews = await db.query("select * from reviews where restaurant_id = $1", [req.params.id]);
+        
         res.status(200).json({
             status: "success",
             data: {
-                restaurant: results.rows[0],
-            }
+                restaurant: restaurant.rows[0],
+                reviews: reviews.rows
+            },
         });
     } catch (err) {
         console.log(err);
