@@ -44,22 +44,22 @@ const RestaurantsList = (props) => {
     };
 
     const renderRating = (restaurant) => {
-
-        if(!restaurant.count) {
-            return <span className="text-warning">0 reviews</span>
+        if (!restaurant.count) {
+          return <span className="text-warning">0 reviews</span>;
         }
-        return(
-        <>
-        <StarRating rating={restaurant.id} />
-        <span className="text-warning ml-1">({restaurant.count})</span>
-        </>
-        )};
+        return (
+          <>
+            <StarRating rating={restaurant.id} />
+            <span className="text-warning ml-1">({restaurant.count})</span>
+          </>
+        );
+      };
 
     return (
         <div className="list-group">
-            <table className="table table-hover table-dark">
-                <thead>
-                    <tr className="bg-success">
+            <table className="table table-striped table-hover table-light">
+                <thead className="table-dark">
+                    <tr className="bg-success ">
                         <th scope="col">Restaurant</th>
                         <th scope="col">Location</th>
                         <th scope="col">Price Range</th>
