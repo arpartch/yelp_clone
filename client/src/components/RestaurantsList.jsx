@@ -22,17 +22,18 @@ const RestaurantsList = (props) => {
     },[])
 
     const handleDelete = async (e, id) => {
-        
+        e.stopPropagation();
         try {
-            const response = await RestaurantFinder.delete(`/${id}`);
-            setRestaurants(restaurants.filter(restaurant => {
-                return restaurant.id !== id
+          const response = await RestaurantFinder.delete(`/${id}`);
+          setRestaurants(
+            restaurants.filter((restaurant) => {
+              return restaurant.id !== id;
             })
-            );
+          );
         } catch (err) {
-            console.log(err);
+          console.log(err);
         }
-    };
+      };
 
     const handleUpdate = (e, id) => {
         e.stopPropagation();
@@ -49,7 +50,7 @@ const RestaurantsList = (props) => {
         }
         return (
           <>
-            <StarRating rating={restaurant.id} />
+            <StarRating rating={restaurant.average_rating} />
             <span className="text-warning ml-1">({restaurant.count})</span>
           </>
         );
