@@ -22,7 +22,7 @@ const RestaurantsList = (props) => {
     },[])
 
     const handleDelete = async (e, id) => {
-        
+        e.stopPropagation();
         try {
             const response = await RestaurantFinder.delete(`/${id}`);
             setRestaurants(restaurants.filter(restaurant => {
